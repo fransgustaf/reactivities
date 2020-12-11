@@ -5,7 +5,7 @@ axios.defaults.baseURL = 'http://localhost:5000/api';
 
 const responseBody = (response: AxiosResponse) => response.data;
 
-const timeToSleep: number = 1000;
+const timeToSleep: number = 100;
 const sleep = (ms: number) => (response: AxiosResponse) =>
     new Promise<AxiosResponse>(resolve => setTimeout(() => resolve(response), ms));
 
