@@ -67,7 +67,6 @@ class ActivityStore {
         this.activity = await agent.Activities.details(id);
         this.loadingInitial = false;
       } catch (error) {
-        console.log(error);
         this.loadingInitial = false;
       }
     }

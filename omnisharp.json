@@ -1,0 +1,6 @@
+{
+    "MsBuild": {
+        "MSBuildSdksPath": "/usr/local/Cellar/dotnet/3.1.110/libexec/sdk/3.1.110/Sdks",
+	"UseLegacySdkResolver": true
+    }
+}
