@@ -9,10 +9,8 @@ namespace Application.Errors
         {
             this.Errors = errors;
             this.Code = code;
-
         }
         public HttpStatusCode Code { get; }
-
         public object Errors { get; }
     }
 }
