@@ -8,6 +8,9 @@ import 'semantic-ui-css/semantic.min.css'
 import App from './app/layout/App';
 import reportWebVitals from './reportWebVitals';
 import ScrollToTop from './app/layout/ScrollToTop';
+import dateFnsLocalizer from 'react-widgets-date-fns';
+
+dateFnsLocalizer();
 
 export const history = createBrowserHistory();
 
