@@ -1,21 +1,23 @@
-import { makeAutoObservable, configure } from "mobx";
-import { createContext, SyntheticEvent } from "react";
+import { makeAutoObservable } from "mobx";
+import { SyntheticEvent } from "react";
 import agent from "../api/agent";
-import { IActivity } from "../modules/activity";
-import { history } from '../..';
+import { IActivity } from "../models/activity";
+import { history } from "../..";
+import { RootStore } from "./rootStore";
 
-configure({ enforceActions: "always" });
+export default class ActivityStore {
+  rootStore: RootStore;
 
-class ActivityStore {
+  constructor(rootStore: RootStore) {
+    this.rootStore = rootStore;
+    makeAutoObservable(this);
+  }
+
   activityRegistry = new Map();
   activity: IActivity | null = null;
   loadingInitial = false;
   submitting = false;
   target = "";
-
-  constructor() {
-    makeAutoObservable(this);
-  }
 
   get activitiesByDate() {
     return this.groupActivitiesByDate(Array.from(this.activityRegistry.values()));
@@ -95,7 +97,7 @@ class ActivityStore {
       await agent.Activities.create(activity);
       this.activityRegistry.set(activity.id, activity);
       this.submitting = false;
-      history.push(`/activities/${activity.id}`)
+      history.push(`/activities/${activity.id}`);
     } catch (error) {
       console.log(error);
       this.submitting = false;
@@ -130,5 +132,3 @@ class ActivityStore {
     }
   };
 }
-
-export default createContext(new ActivityStore());

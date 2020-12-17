@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Item, Button, Segment, Icon } from 'semantic-ui-react'
-import { IActivity } from '../../../app/modules/activity'
+import { IActivity } from '../../../app/models/activity'
 import { format } from 'date-fns'
 
 const ActivityListItem: React.FC<{ activity: IActivity }> = ({ activity }) => {

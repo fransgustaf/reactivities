@@ -2,7 +2,7 @@ import { observer } from 'mobx-react-lite';
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { Segment, Item, Header, Button, Image } from 'semantic-ui-react'
-import { IActivity } from '../../app/modules/activity';
+import { IActivity } from '../../app/models/activity';
 import { format } from 'date-fns'
 
 const activityImageStyle = {
